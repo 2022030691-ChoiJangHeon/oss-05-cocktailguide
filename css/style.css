@@ -1,1 +1,90 @@
+/* =========================================
+   1. 전체 색상(4톤) 선정 및 변수 등록
+   ========================================= */
+:root {
+  /* [예시 1] 모던한 라운지 바 느낌 (다크 모드 기반) */
+  --bg-color: #121212;        /* 1톤: 전체 배경색 (짙은 차콜/블랙) */
+  --surface-color: #1E1E1E;   /* 2톤: 카드나 박스 배경색 (약간 밝은 다크그레이) */
+  --primary-color: #FF6B6B;   /* 3톤: 주조색/포인트 (칵테일 체리/코랄 레드) */
+  --secondary-color: #4ECDC4; /* 4톤: 보조색/강조 (민트/라임 그린) */
+  
+  /* 기본 글자 색상 */
+  --text-main: #F5F5F5;       /* 기본 본문 글자색 (밝은 흰색 계열) */
+  --text-sub: #A0A0A0;        /* 부가 설명 글자색 (회색) */
 
+  /* [참고: 밝은 톤을 원할 경우 아래 주석을 참고해 변경하세요]
+  --bg-color: #FAF9F6;        (아이보리/오프화이트)
+  --surface-color: #FFFFFF;   (순백색 카드 배경)
+  --primary-color: #E07A5F;   (테라코타/오렌지)
+  --secondary-color: #3D405B; (딥 네이비)
+  --text-main: #222222;
+  --text-sub: #666666;
+  */
+}
+
+/* =========================================
+   2. 기본 초기화 및 전체 배경/글자 적용
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 패딩이 너비에 영향을 주지 않도록 설정 */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif; /* 깔끔한 기본 폰트 */
+  font-size: 16px;          /* 브라우저 기본 본문 크기 기준점 */
+  line-height: 1.6;         /* 가독성을 위한 줄 간격 */
+  text-align: left;         /* 기본 텍스트 정렬은 왼쪽 정렬 */
+}
+
+/* =========================================
+   3. 글자 크기(Typography) 및 정렬 확정
+   ========================================= */
+/* 대제목 (사이트 타이틀, 메인 배너) */
+h1 {
+  font-size: 2.5rem;        /* 16px * 2.5 = 40px */
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+/* 중제목 (섹션 제목, 칵테일 이름) */
+h2 {
+  font-size: 1.75rem;       /* 28px */
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* 소제목 (재료 목록, 레시피 단계 제목) */
+h3 {
+  font-size: 1.25rem;       /* 20px */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* 일반 본문 */
+p {
+  font-size: 1rem;          /* 16px */
+  margin-bottom: 1rem;
+}
+
+/* 캡션, 해시태그, 도수 표기 등 작은 글씨 */
+small, .caption {
+  font-size: 0.875rem;      /* 14px */
+  color: var(--text-sub);
+}
+
+/* 자주 쓸 정렬 유틸리티 클래스 (팀원들이 HTML에서 class="text-center" 식으로 활용) */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* 전체 콘텐츠 중앙 정렬용 컨테이너 */
+.container {
+  max-width: 1200px;        /* 웹사이트 최대 너비 제한 */
+  margin: 0 auto;           /* 화면 중앙 배치 */
+  padding: 0 20px;          /* 모바일 화면 양옆 여백 */
+}
