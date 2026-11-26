@@ -509,3 +509,8 @@ body:has(#tag-bitter:checked)
     }
 
 }
+
+/* CSS 연결 테스트 */
+body {
+    background-color: red !important;
+}
