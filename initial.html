@@ -1,20 +1,363 @@
-
 <!-- ini -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Cocktail Guide</title>
 
-    <!-- CSS 연결 -->
-    <link rel="stylesheet" href="css/ini.css">
+    <style>
+/* ini */
 
+/* ========================================
+   1. 기본 설정
+======================================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F5F3EE;
+    color: #253B40;
+}
+
+/* ========================================
+   2. HEADER
+======================================== */
+.header {
+    background-color: #182D35;
+    color: white;
+    padding: 24px 6%;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 21px;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.header-label {
+    color: #D7B77B;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+/* ========================================
+   3. MAIN
+======================================== */
+.main-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 45px 6%;
+}
+
+/* ========================================
+   4. HERO
+======================================== */
+.hero {
+    margin-bottom: 40px;
+}
+
+.eyebrow {
+    color: #A17C45;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin: 12px 0;
+    line-height: 1.2;
+}
+
+.hero > p:last-child {
+    color: #778481;
+    font-size: 15px;
+}
+
+/* ========================================
+   5. NAME FILTER
+======================================== */
+.search-section {
+    margin-bottom: 35px;
+}
+
+.search-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.search-section select {
+    width: 100%;
+    padding: 16px;
+    background-color: white;
+    color: #405451;
+    border: 1px solid #D9DCD6;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
+}
+
+.search-section select:focus {
+    border-color: #52766B;
+}
+
+/* ========================================
+   6. SECTION HEADING
+======================================== */
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.section-heading h3 {
+    font-size: 19px;
+    margin: 0;
+}
+
+.section-heading span {
+    font-size: 12px;
+    color: #778481;
+}
+
+/* ========================================
+   7. TAG FILTER
+======================================== */
+.tag-section {
+    margin-bottom: 15px;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag-option {
+    position: relative;
+    cursor: pointer;
+}
+
+.tag-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.tag-option span {
+    display: inline-block;
+    padding: 10px 18px;
+    border: 1px solid #D9DCD6;
+    border-radius: 30px;
+    background-color: white;
+    color: #405451;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.tag-option:hover span {
+    border-color: #52766B;
+}
+
+.tag-option input:checked + span {
+    background-color: #294D48;
+    color: white;
+    border-color: #294D48;
+}
+
+.tag-option input:focus-visible + span {
+    outline: 2px solid #A17C45;
+    outline-offset: 3px;
+}
+
+/* ========================================
+   8. RESET BUTTON
+======================================== */
+.filter-actions {
+    margin-bottom: 45px;
+}
+
+.reset-button {
+    margin-top: 15px;
+    padding: 7px 12px;
+    border: none;
+    background: transparent;
+    color: #778481;
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.reset-button:hover {
+    color: #294D48;
+}
+
+/* ========================================
+   9. COCKTAIL GRID
+======================================== */
+.cocktail-section {
+    margin-bottom: 50px;
+}
+
+.cocktail-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* ========================================
+   10. COCKTAIL CARD
+======================================== */
+.cocktail-card {
+    background-color: white;
+    border: 1px solid #E6E4DE;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cocktail-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ========================================
+   11. COCKTAIL IMAGE
+======================================== */
+.cocktail-image {
+    height: 145px;
+    background: linear-gradient(135deg, #D9E5DA, #A8C5B8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+}
+
+/* ========================================
+   12. COCKTAIL INFO
+======================================== */
+.cocktail-info {
+    padding: 16px;
+}
+
+.cocktail-info h4 {
+    font-size: 17px;
+    margin: 0 0 10px;
+}
+
+.cocktail-description {
+    color: #778481;
+    font-size: 12px;
+    line-height: 1.5;
+    min-height: 36px;
+}
+
+.ingredients {
+    color: #536762;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* ========================================
+   13. CARD TAGS
+======================================== */
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 14px;
+}
+
+.card-tags span {
+    background-color: #F0F3EE;
+    color: #527066;
+    padding: 5px 8px;
+    border-radius: 20px;
+    font-size: 10px;
+}
+
+/* ========================================
+   14. NAME FILTER LOGIC
+======================================== */
+body:has(#name-filter option[value="mojito"]:checked) .cocktail-card:not([data-name="mojito"]),
+body:has(#name-filter option[value="margarita"]:checked) .cocktail-card:not([data-name="margarita"]),
+body:has(#name-filter option[value="cosmopolitan"]:checked) .cocktail-card:not([data-name="cosmopolitan"]),
+body:has(#name-filter option[value="gin-tonic"]:checked) .cocktail-card:not([data-name="gin-tonic"]),
+body:has(#name-filter option[value="pina-colada"]:checked) .cocktail-card:not([data-name="pina-colada"]),
+body:has(#name-filter option[value="old-fashioned"]:checked) .cocktail-card:not([data-name="old-fashioned"]),
+body:has(#name-filter option[value="daiquiri"]:checked) .cocktail-card:not([data-name="daiquiri"]),
+body:has(#name-filter option[value="blue-lagoon"]:checked) .cocktail-card:not([data-name="blue-lagoon"]) {
+    display: none;
+}
+
+/* ========================================
+   15. TAG FILTER LOGIC
+======================================== */
+body:has(#tag-refreshing:checked) .cocktail-card:not([data-tags~="refreshing"]),
+body:has(#tag-sweet:checked) .cocktail-card:not([data-tags~="sweet"]),
+body:has(#tag-sour:checked) .cocktail-card:not([data-tags~="sour"]),
+body:has(#tag-fruity:checked) .cocktail-card:not([data-tags~="fruity"]),
+body:has(#tag-strong:checked) .cocktail-card:not([data-tags~="strong"]),
+body:has(#tag-bitter:checked) .cocktail-card:not([data-tags~="bitter"]) {
+    display: none;
+}
+
+/* ========================================
+   16. TABLET RESPONSIVE
+======================================== */
+@media (max-width: 800px) {
+    .cocktail-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+}
+
+/* ========================================
+   17. MOBILE RESPONSIVE
+======================================== */
+@media (max-width: 480px) {
+    .header-label {
+        display: none;
+    }
+
+    .main-container {
+        padding: 30px 5%;
+    }
+
+    .hero h2 {
+        font-size: 27px;
+    }
+
+    .cocktail-grid {
+        gap: 12px;
+    }
+
+    .cocktail-info {
+        padding: 12px;
+    }
+}
+    </style>
 </head>
 
 <body>
-
     <!-- =========================
          HEADER
     ========================== -->
@@ -25,7 +368,6 @@
         </div>
     </header>
 
-
     <!-- =========================
          MAIN
     ========================== -->
@@ -34,25 +376,18 @@
         <!-- 메인 소개 -->
         <section class="hero">
             <p class="eyebrow">DISCOVER YOUR DRINK</p>
-
             <h2>Find Your Perfect Cocktail.</h2>
-
             <p>Discover drinks that match your taste.</p>
         </section>
-
 
         <!-- =========================
              FILTER AREA
         ========================== -->
-
         <form class="filter-section">
 
             <!-- 이름 선택 필터 -->
             <section class="search-section">
-
-                <label for="name-filter">
-                    Find by Cocktail Name
-                </label>
+                <label for="name-filter">Find by Cocktail Name</label>
 
                 <select id="name-filter" name="name">
                     <option value="all">All Cocktails</option>
@@ -65,20 +400,16 @@
                     <option value="daiquiri">Daiquiri</option>
                     <option value="blue-lagoon">Blue Lagoon</option>
                 </select>
-
             </section>
-
 
             <!-- 태그 필터 -->
             <section class="tag-section">
-
                 <div class="section-heading">
                     <h3>Explore by Flavor</h3>
                     <span>Multiple Selection</span>
                 </div>
 
                 <div class="tag-list">
-
                     <label class="tag-option">
                         <input type="checkbox" id="tag-refreshing">
                         <span>Refreshing</span>
@@ -108,275 +439,141 @@
                         <input type="checkbox" id="tag-bitter">
                         <span>Bitter</span>
                     </label>
-
                 </div>
-
             </section>
-
 
             <!-- 필터 초기화 -->
             <div class="filter-actions">
-                <button type="reset" class="reset-button">
-                    Reset Filters
-                </button>
+                <button type="reset" class="reset-button">Reset Filters</button>
             </div>
-
         </form>
-
 
         <!-- =========================
              COCKTAIL LIST
         ========================== -->
-
         <section class="cocktail-section">
-
             <div class="section-heading">
                 <h3>Cocktail List</h3>
                 <span>8 Cocktails</span>
             </div>
 
-
             <div class="cocktail-grid">
 
-
                 <!-- Mojito -->
-                <article class="cocktail-card"
-                    data-name="mojito"
-                    data-tags="refreshing sweet">
-
-                    <div class="cocktail-image">
-                        🍃
-                    </div>
-
+                <article class="cocktail-card" data-name="mojito" data-tags="refreshing sweet">
+                    <div class="cocktail-image">🍃</div>
                     <div class="cocktail-info">
                         <h4>Mojito</h4>
-
-                        <p class="cocktail-description">
-                            A refreshing cocktail with mint and lime.
-                        </p>
-
-                        <p class="ingredients">
-                            Rum, Mint, Lime, Soda
-                        </p>
-
+                        <p class="cocktail-description">A refreshing cocktail with mint and lime.</p>
+                        <p class="ingredients">Rum, Mint, Lime, Soda</p>
                         <div class="card-tags">
                             <span>Refreshing</span>
                             <span>Sweet</span>
                         </div>
                     </div>
-
                 </article>
-
 
                 <!-- Margarita -->
-                <article class="cocktail-card"
-                    data-name="margarita"
-                    data-tags="sour strong">
-
-                    <div class="cocktail-image">
-                        🍋
-                    </div>
-
+                <article class="cocktail-card" data-name="margarita" data-tags="sour strong">
+                    <div class="cocktail-image">🍋</div>
                     <div class="cocktail-info">
                         <h4>Margarita</h4>
-
-                        <p class="cocktail-description">
-                            A classic cocktail with a sour taste.
-                        </p>
-
-                        <p class="ingredients">
-                            Tequila, Lime, Triple Sec
-                        </p>
-
+                        <p class="cocktail-description">A classic cocktail with a sour taste.</p>
+                        <p class="ingredients">Tequila, Lime, Triple Sec</p>
                         <div class="card-tags">
                             <span>Sour</span>
                             <span>Strong</span>
                         </div>
                     </div>
-
                 </article>
-
 
                 <!-- Cosmopolitan -->
-                <article class="cocktail-card"
-                    data-name="cosmopolitan"
-                    data-tags="fruity sweet">
-
-                    <div class="cocktail-image">
-                        🍸
-                    </div>
-
+                <article class="cocktail-card" data-name="cosmopolitan" data-tags="fruity sweet">
+                    <div class="cocktail-image">🍸</div>
                     <div class="cocktail-info">
                         <h4>Cosmopolitan</h4>
-
-                        <p class="cocktail-description">
-                            A fruity cocktail with cranberry flavor.
-                        </p>
-
-                        <p class="ingredients">
-                            Vodka, Cranberry, Lime
-                        </p>
-
+                        <p class="cocktail-description">A fruity cocktail with cranberry flavor.</p>
+                        <p class="ingredients">Vodka, Cranberry, Lime</p>
                         <div class="card-tags">
                             <span>Fruity</span>
                             <span>Sweet</span>
                         </div>
                     </div>
-
                 </article>
 
-
                 <!-- Gin Tonic -->
-                <article class="cocktail-card"
-                    data-name="gin-tonic"
-                    data-tags="refreshing bitter">
-
-                    <div class="cocktail-image">
-                        🍈
-                    </div>
-
+                <article class="cocktail-card" data-name="gin-tonic" data-tags="refreshing bitter">
+                    <div class="cocktail-image">🍈</div>
                     <div class="cocktail-info">
                         <h4>Gin Tonic</h4>
-
-                        <p class="cocktail-description">
-                            A simple and refreshing gin cocktail.
-                        </p>
-
-                        <p class="ingredients">
-                            Gin, Tonic Water, Lime
-                        </p>
-
+                        <p class="cocktail-description">A simple and refreshing gin cocktail.</p>
+                        <p class="ingredients">Gin, Tonic Water, Lime</p>
                         <div class="card-tags">
                             <span>Refreshing</span>
                             <span>Bitter</span>
                         </div>
                     </div>
-
                 </article>
 
-
                 <!-- Pina Colada -->
-                <article class="cocktail-card"
-                    data-name="pina-colada"
-                    data-tags="sweet fruity">
-
-                    <div class="cocktail-image">
-                        🍍
-                    </div>
-
+                <article class="cocktail-card" data-name="pina-colada" data-tags="sweet fruity">
+                    <div class="cocktail-image">🍍</div>
                     <div class="cocktail-info">
                         <h4>Pina Colada</h4>
-
-                        <p class="cocktail-description">
-                            A tropical cocktail with coconut and pineapple.
-                        </p>
-
-                        <p class="ingredients">
-                            Rum, Coconut, Pineapple
-                        </p>
-
+                        <p class="cocktail-description">A tropical cocktail with coconut and pineapple.</p>
+                        <p class="ingredients">Rum, Coconut, Pineapple</p>
                         <div class="card-tags">
                             <span>Sweet</span>
                             <span>Fruity</span>
                         </div>
                     </div>
-
                 </article>
 
-
                 <!-- Old Fashioned -->
-                <article class="cocktail-card"
-                    data-name="old-fashioned"
-                    data-tags="strong bitter">
-
-                    <div class="cocktail-image">
-                        🥃
-                    </div>
-
+                <article class="cocktail-card" data-name="old-fashioned" data-tags="strong bitter">
+                    <div class="cocktail-image">🥃</div>
                     <div class="cocktail-info">
                         <h4>Old Fashioned</h4>
-
-                        <p class="cocktail-description">
-                            A traditional whiskey-based cocktail.
-                        </p>
-
-                        <p class="ingredients">
-                            Whiskey, Sugar, Bitters
-                        </p>
-
+                        <p class="cocktail-description">A traditional whiskey-based cocktail.</p>
+                        <p class="ingredients">Whiskey, Sugar, Bitters</p>
                         <div class="card-tags">
                             <span>Strong</span>
                             <span>Bitter</span>
                         </div>
                     </div>
-
                 </article>
 
-
                 <!-- Daiquiri -->
-                <article class="cocktail-card"
-                    data-name="daiquiri"
-                    data-tags="sour refreshing">
-
-                    <div class="cocktail-image">
-                        🍹
-                    </div>
-
+                <article class="cocktail-card" data-name="daiquiri" data-tags="sour refreshing">
+                    <div class="cocktail-image">🍹</div>
                     <div class="cocktail-info">
                         <h4>Daiquiri</h4>
-
-                        <p class="cocktail-description">
-                            A balanced cocktail with rum and lime.
-                        </p>
-
-                        <p class="ingredients">
-                            Rum, Lime, Sugar
-                        </p>
-
+                        <p class="cocktail-description">A balanced cocktail with rum and lime.</p>
+                        <p class="ingredients">Rum, Lime, Sugar</p>
                         <div class="card-tags">
                             <span>Sour</span>
                             <span>Refreshing</span>
                         </div>
                     </div>
-
                 </article>
 
-
                 <!-- Blue Lagoon -->
-                <article class="cocktail-card"
-                    data-name="blue-lagoon"
-                    data-tags="fruity sweet">
-
-                    <div class="cocktail-image">
-                        🩵
-                    </div>
-
+                <article class="cocktail-card" data-name="blue-lagoon" data-tags="fruity sweet">
+                    <div class="cocktail-image">🩵</div>
                     <div class="cocktail-info">
                         <h4>Blue Lagoon</h4>
-
-                        <p class="cocktail-description">
-                            A bright blue and fruity cocktail.
-                        </p>
-
-                        <p class="ingredients">
-                            Vodka, Blue Curacao, Lemonade
-                        </p>
-
+                        <p class="cocktail-description">A bright blue and fruity cocktail.</p>
+                        <p class="ingredients">Vodka, Blue Curacao, Lemonade</p>
                         <div class="card-tags">
                             <span>Fruity</span>
                             <span>Sweet</span>
                         </div>
                     </div>
-
                 </article>
 
-
             </div>
-
         </section>
-
     </main>
-
 
     <!-- =========================
          FOOTER
@@ -384,6 +581,5 @@
     <footer class="footer">
         <p>COCKTAIL GUIDE PROJECT</p>
     </footer>
-
 </body>
 </html>
