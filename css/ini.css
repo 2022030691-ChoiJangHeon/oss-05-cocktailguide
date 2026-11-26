@@ -1,0 +1,511 @@
+
+/* ini */
+
+
+/* ========================================
+   1. 기본 설정
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F5F3EE;
+    color: #253B40;
+}
+
+
+/* ========================================
+   2. HEADER
+======================================== */
+
+.header {
+    background-color: #182D35;
+    color: white;
+    padding: 24px 6%;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 21px;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.header-label {
+    color: #D7B77B;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+
+/* ========================================
+   3. MAIN
+======================================== */
+
+.main-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 45px 6%;
+}
+
+
+/* ========================================
+   4. HERO
+======================================== */
+
+.hero {
+    margin-bottom: 40px;
+}
+
+.eyebrow {
+    color: #A17C45;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin: 12px 0;
+    line-height: 1.2;
+}
+
+.hero > p:last-child {
+    color: #778481;
+    font-size: 15px;
+}
+
+
+/* ========================================
+   5. NAME FILTER
+======================================== */
+
+.search-section {
+    margin-bottom: 35px;
+}
+
+.search-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.search-section select {
+    width: 100%;
+    padding: 16px;
+
+    background-color: white;
+    color: #405451;
+
+    border: 1px solid #D9DCD6;
+    border-radius: 10px;
+
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
+}
+
+.search-section select:focus {
+    border-color: #52766B;
+}
+
+
+/* ========================================
+   6. SECTION HEADING
+======================================== */
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 16px;
+}
+
+.section-heading h3 {
+    font-size: 19px;
+    margin: 0;
+}
+
+.section-heading span {
+    font-size: 12px;
+    color: #778481;
+}
+
+
+/* ========================================
+   7. TAG FILTER
+======================================== */
+
+.tag-section {
+    margin-bottom: 15px;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag-option {
+    position: relative;
+    cursor: pointer;
+}
+
+/* 실제 체크박스는 숨기고
+   label의 span으로 디자인 */
+
+.tag-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+/* 태그 기본 디자인 */
+
+.tag-option span {
+    display: inline-block;
+
+    padding: 10px 18px;
+
+    border: 1px solid #D9DCD6;
+    border-radius: 30px;
+
+    background-color: white;
+    color: #405451;
+
+    font-size: 13px;
+
+    transition: all 0.2s;
+}
+
+/* 태그에 마우스를 올렸을 때 */
+
+.tag-option:hover span {
+    border-color: #52766B;
+}
+
+/* 태그가 선택되었을 때 */
+
+.tag-option input:checked + span {
+    background-color: #294D48;
+    color: white;
+    border-color: #294D48;
+}
+
+/* 키보드 접근성 */
+
+.tag-option input:focus-visible + span {
+    outline: 2px solid #A17C45;
+    outline-offset: 3px;
+}
+
+
+/* ========================================
+   8. RESET BUTTON
+======================================== */
+
+.filter-actions {
+    margin-bottom: 45px;
+}
+
+.reset-button {
+    margin-top: 15px;
+
+    padding: 7px 12px;
+
+    border: none;
+    background: transparent;
+
+    color: #778481;
+
+    font-size: 12px;
+    text-decoration: underline;
+
+    cursor: pointer;
+}
+
+.reset-button:hover {
+    color: #294D48;
+}
+
+
+/* ========================================
+   9. COCKTAIL GRID
+======================================== */
+
+.cocktail-section {
+    margin-bottom: 50px;
+}
+
+.cocktail-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* ========================================
+   10. COCKTAIL CARD
+======================================== */
+
+.cocktail-card {
+    background-color: white;
+
+    border: 1px solid #E6E4DE;
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+/* 카드 Hover 효과 */
+
+.cocktail-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ========================================
+   11. COCKTAIL IMAGE
+======================================== */
+
+.cocktail-image {
+    height: 145px;
+
+    background: linear-gradient(
+        135deg,
+        #D9E5DA,
+        #A8C5B8
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 55px;
+}
+
+
+/* ========================================
+   12. COCKTAIL INFO
+======================================== */
+
+.cocktail-info {
+    padding: 16px;
+}
+
+.cocktail-info h4 {
+    font-size: 17px;
+    margin: 0 0 10px;
+}
+
+.cocktail-description {
+    color: #778481;
+    font-size: 12px;
+    line-height: 1.5;
+    min-height: 36px;
+}
+
+.ingredients {
+    color: #536762;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   13. CARD TAGS
+======================================== */
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    margin-top: 14px;
+}
+
+.card-tags span {
+    background-color: #F0F3EE;
+    color: #527066;
+
+    padding: 5px 8px;
+
+    border-radius: 20px;
+    font-size: 10px;
+}
+
+
+/* ========================================
+   14. NAME FILTER LOGIC
+======================================== */
+
+/* Mojito 선택 */
+
+body:has(#name-filter option[value="mojito"]:checked)
+.cocktail-card:not([data-name="mojito"]) {
+    display: none;
+}
+
+/* Margarita 선택 */
+
+body:has(#name-filter option[value="margarita"]:checked)
+.cocktail-card:not([data-name="margarita"]) {
+    display: none;
+}
+
+/* Cosmopolitan 선택 */
+
+body:has(#name-filter option[value="cosmopolitan"]:checked)
+.cocktail-card:not([data-name="cosmopolitan"]) {
+    display: none;
+}
+
+/* Gin Tonic 선택 */
+
+body:has(#name-filter option[value="gin-tonic"]:checked)
+.cocktail-card:not([data-name="gin-tonic"]) {
+    display: none;
+}
+
+/* Pina Colada 선택 */
+
+body:has(#name-filter option[value="pina-colada"]:checked)
+.cocktail-card:not([data-name="pina-colada"]) {
+    display: none;
+}
+
+/* Old Fashioned 선택 */
+
+body:has(#name-filter option[value="old-fashioned"]:checked)
+.cocktail-card:not([data-name="old-fashioned"]) {
+    display: none;
+}
+
+/* Daiquiri 선택 */
+
+body:has(#name-filter option[value="daiquiri"]:checked)
+.cocktail-card:not([data-name="daiquiri"]) {
+    display: none;
+}
+
+/* Blue Lagoon 선택 */
+
+body:has(#name-filter option[value="blue-lagoon"]:checked)
+.cocktail-card:not([data-name="blue-lagoon"]) {
+    display: none;
+}
+
+
+/* ========================================
+   15. TAG FILTER LOGIC
+======================================== */
+
+/* Refreshing */
+
+body:has(#tag-refreshing:checked)
+.cocktail-card:not([data-tags~="refreshing"]) {
+    display: none;
+}
+
+/* Sweet */
+
+body:has(#tag-sweet:checked)
+.cocktail-card:not([data-tags~="sweet"]) {
+    display: none;
+}
+
+/* Sour */
+
+body:has(#tag-sour:checked)
+.cocktail-card:not([data-tags~="sour"]) {
+    display: none;
+}
+
+/* Fruity */
+
+body:has(#tag-fruity:checked)
+.cocktail-card:not([data-tags~="fruity"]) {
+    display: none;
+}
+
+/* Strong */
+
+body:has(#tag-strong:checked)
+.cocktail-card:not([data-tags~="strong"]) {
+    display: none;
+}
+
+/* Bitter */
+
+body:has(#tag-bitter:checked)
+.cocktail-card:not([data-tags~="bitter"]) {
+    display: none;
+}
+
+
+/* ========================================
+   16. TABLET RESPONSIVE
+======================================== */
+
+@media (max-width: 800px) {
+
+    .cocktail-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+}
+
+
+/* ========================================
+   17. MOBILE RESPONSIVE
+======================================== */
+
+@media (max-width: 480px) {
+
+    .header-label {
+        display: none;
+    }
+
+    .main-container {
+        padding: 30px 5%;
+    }
+
+    .hero h2 {
+        font-size: 27px;
+    }
+
+    .cocktail-grid {
+        gap: 12px;
+    }
+
+    .cocktail-info {
+        padding: 12px;
+    }
+
+}
